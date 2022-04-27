@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../layout/Layout'
+import Producto from '../components/Producto'
 import useKiosco from '../hooks/useKiosco'
 
 export default function Home() {
@@ -12,6 +13,12 @@ export default function Home() {
       <p className='text-2xl my-10'>
         Elige y personaliza tu pedido
       </p>
+      {categoriaActual?.productos?.map( (producto) => (
+        <Producto   
+          key={producto.id}
+          producto={producto}
+        />
+      ))}
     </Layout>
   )
 }
