@@ -6,12 +6,14 @@ const Sidebar = () => {
     const { categorias } = useKiosco()
   return (
    <>
-        <Image 
+        <div className="mt-6">
+          <Image 
             width={380} 
             height={100} 
             src="/assets/img/logo.svg" 
-            alt="logotipo" 
-        />
+            alt="logotipo"
+          />
+        </div>
 
         <nav className="mt-10">
           {categorias.map( categoria => (
