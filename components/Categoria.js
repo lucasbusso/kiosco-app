@@ -9,7 +9,7 @@ const Categoria = ({categoria}) => {
 
   return (
     <div className={`${categoriaActual?.id === id ? "bg-amber-400 text-amber-50" : ""} 
-                   flex items-center gap-6 w-full border p-5 hover:bg-amber-400`}>
+                   flex items-center gap-6 w-full border-y p-5 hover:bg-amber-400`}>
       <Image 
         width={70}
         height={70}
