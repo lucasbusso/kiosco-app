@@ -34,6 +34,7 @@ const KioscoProvider = ({children}) => {
     const handleChangeModal = () =>{
         setModal(!modal)
     }
+
     return(
         <KioscoContext.Provider
             value={{
@@ -42,7 +43,8 @@ const KioscoProvider = ({children}) => {
                 categoriaActual,
                 producto,
                 handleSetProducto,
-                handleChangeModal
+                handleChangeModal,
+                modal
             }}
         >
             {children}
