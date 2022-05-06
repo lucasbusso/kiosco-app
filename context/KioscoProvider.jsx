@@ -36,8 +36,8 @@ const KioscoProvider = ({children}) => {
         setModal(!modal)
     }
 
-    const handleAgregarPedido = () => {
-
+    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+        setPedido([...pedido, producto])
     }
 
     return(
