@@ -5,7 +5,7 @@ import { formatearDinero } from "../helpers"
 
 const ModalProducto = () => {
     const [ cantidad, setCantidad ] = useState(1)
-    const { producto, handleChangeModal } = useKiosco()
+    const { producto, handleChangeModal, handleAgregarPedido } = useKiosco()
 
 
     return (
@@ -36,7 +36,7 @@ const ModalProducto = () => {
             <p className="mt-5 font-black text-5xl text-amber-600">
                 {formatearDinero(producto.precio)}
             </p>
-            <div className="flex gap-4 mt-10">
+            <div className="flex gap-4 mt-7 w-full justify-center">
                 <button
                     type="button"
                     onClick={()=>{
@@ -61,6 +61,14 @@ const ModalProducto = () => {
                     </svg>
                 </button>
             </div>
+
+            <button
+                type="button"
+                className="bg-indigo-600 hover:bg-indigo-800 w-full py-3 mt-8 shadow-md text-white font-bold uppercase rounded-md"
+                onClick={ () => handleAgregarPedido()}
+            >
+                Agregar 
+            </button>
         </div>
     </div>
   )
