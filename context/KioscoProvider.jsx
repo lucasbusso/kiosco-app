@@ -37,7 +37,14 @@ const KioscoProvider = ({children}) => {
     }
 
     const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
-        setPedido([...pedido, producto])
+
+        if(pedido.some(productoState => productoState.id === producto.id)){ //reviso si el producto agregado es repetido
+            const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
+            setPedido(pedidoActualizado) //si es repetido, retorno el pedido actualizado
+        } else {  
+            setPedido([...pedido, producto]) //si el producto no estaba agregado, lo agrego al estado
+        }
+
     }
 
     return(
