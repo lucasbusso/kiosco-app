@@ -18,6 +18,14 @@ const Producto = ({producto}) => {
             <p className="mt-5 font-black text-4xl text-amber-500">
                 { formatearDinero(precio) }
             </p>
+
+            <button 
+                type="button"
+                className="bg-rose-400 hover:bg-rose-500 text-white w-full mt-5 p-3 uppercase font-bold shadow-md"
+                onClick={() =>}
+            >
+                Agregar
+            </button>
         </div>
     </div>
   )
