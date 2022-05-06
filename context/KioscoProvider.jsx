@@ -44,7 +44,7 @@ const KioscoProvider = ({children}) => {
         } else {  
             setPedido([...pedido, producto]) //si el producto no estaba agregado, lo agrego al estado
         }
-
+        setModal(false)
     }
 
     return(
@@ -57,7 +57,8 @@ const KioscoProvider = ({children}) => {
                 handleSetProducto,
                 handleChangeModal,
                 modal,
-                handleAgregarPedido
+                handleAgregarPedido,
+                pedido
             }}
         >
             {children}
