@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const KioscoContext = createContext()
 
@@ -41,8 +42,11 @@ const KioscoProvider = ({children}) => {
         if(pedido.some(productoState => productoState.id === producto.id)){ //reviso si el producto agregado es repetido
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
             setPedido(pedidoActualizado) //si es repetido, retorno el pedido actualizado
+            toast.success("Cambios guardados") //cuando editas cantidad
+
         } else {  
             setPedido([...pedido, producto]) //si el producto no estaba agregado, lo agrego al estado
+            toast.success("Producto agregado") //cuando agregas
         }
         setModal(false)
     }
