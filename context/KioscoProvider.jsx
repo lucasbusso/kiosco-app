@@ -37,7 +37,7 @@ const KioscoProvider = ({children}) => {
         setModal(!modal)
     }
 
-    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+    const handleAgregarPedido = ({categoriaId, ...producto}) => {
 
         if(pedido.some(productoState => productoState.id === producto.id)){ //reviso si el producto agregado es repetido
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
