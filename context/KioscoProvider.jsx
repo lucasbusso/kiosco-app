@@ -36,13 +36,7 @@ const KioscoProvider = ({children}) => {
     const handleChangeModal = () =>{
         setModal(!modal)
     }
-
-    const handleEditarCantidades = (id) => {
-        const pedidoActualizado = pedido.filter( producto => producto.id === id)
-        setProducto(pedidoActualizado[0]);
-        setModal(!modal)
-    }
-
+    
     const handleAgregarPedido = ({categoriaId, ...producto}) => {
 
         if(pedido.some(productoState => productoState.id === producto.id)){ //reviso si el producto agregado es repetido
@@ -55,6 +49,18 @@ const KioscoProvider = ({children}) => {
             toast.success("Producto agregado") //cuando agregas
         }
         setModal(false)
+    }
+
+    const handleEditarCantidades = (id) => {
+        const pedidoActualizado = pedido.filter( producto => producto.id === id)
+        setProducto(pedidoActualizado[0]);
+        setModal(!modal)
+    }
+
+    const handleEliminarProducto = id => {
+        const pedidoActualizado = pedido.filter( producto => producto.id !== id)
+
+        setPedido(pedidoActualizado)
     }
 
     return (
@@ -70,6 +76,7 @@ const KioscoProvider = ({children}) => {
           handleAgregarPedido,
           pedido,
           handleEditarCantidades,
+          handleEliminarProducto
         }}
       >
         {children}
