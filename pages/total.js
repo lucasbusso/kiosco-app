@@ -4,11 +4,11 @@ import useKiosco from "../hooks/useKiosco"
 
 export default function Total() {
 
-    const { pedido } = useKiosco()
+    const { pedido, nombre, setNombre } = useKiosco()
 
     const comprobarPedido = useCallback(() => {
-        return pedido.length === 0
-    }, [pedido])
+        return pedido.length === 0 || nombre === "" || nombre.length < 3
+    }, [pedido, nombre])
 
     useEffect(() =>{
         comprobarPedido()
@@ -41,6 +41,8 @@ export default function Total() {
                         id="nombre"
                         type="text"
                         className="bg-gray-200 w-full lg:w-1/3 mt-3 p-2 rounded-md"
+                        value={nombre}
+                        onChange={e => setNombre(e.target.value)} //le paso el nombre que se introduzca al estado
                     >
                     </input>
                 </div>
@@ -56,7 +58,7 @@ export default function Total() {
                 >
                     <input
                         type="submit"
-                        className={`${comprobarPedido() ? 'bg-indigo-100' : 'bg-indigo-600'}  w-full lg:w-auto px-5 py-2 rounded-md uppercase font-bold text-white text-center`}
+                        className={`${comprobarPedido() ? 'bg-indigo-100' : 'bg-indigo-600'}  hover:bg-indigo-700 hover:cursor-pointer w-full lg:w-auto px-5 py-2 rounded-md uppercase font-bold text-white text-center`}
                         value="Confirmar pedido"
                         disabled={comprobarPedido()}
                     >
