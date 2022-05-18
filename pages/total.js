@@ -57,7 +57,7 @@ export default function Total() {
                 >
                     <input
                         type="submit"
-                        className={`${comprobarPedido() ? 'bg-indigo-100' : 'bg-indigo-600'}  hover:bg-indigo-700 hover:cursor-pointer w-full lg:w-auto px-5 py-2 rounded-md uppercase font-bold text-white text-center`}
+                        className={`${comprobarPedido() ? 'bg-indigo-100' : 'bg-indigo-600'} hover:cursor-pointer w-full lg:w-auto px-5 py-2 rounded-md uppercase font-bold text-white text-center`}
                         value="Confirmar pedido"
                         disabled={comprobarPedido()}
                     >
