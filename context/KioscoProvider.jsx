@@ -29,7 +29,7 @@ const KioscoProvider = ({children}) => {
     useEffect( () => {
         setCategoriaActual(categorias[0])
     }, [categorias])
-    
+
     useEffect( () => {
         const nuevoTotal = pedido.reduce((total, producto) => (producto.precio * producto.cantidad) + total, 0)
         setTotal(nuevoTotal)
@@ -77,6 +77,13 @@ const KioscoProvider = ({children}) => {
 
     const colocarOrden = async (e) => {
       e.preventDefault();
+
+      try {
+          const {data} = await axios.post('/api/ordenes', {pedido, nombre, total, fecha: Date.now().toString()})
+          console.log(data)
+      } catch (error) {
+          console.log(error)
+      }
 
     };
 
