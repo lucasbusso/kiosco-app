@@ -37,6 +37,12 @@ const KioscoProvider = ({children}) => {
         setModal(!modal)
     }
 
+    const handleEditarCantidades = (id) => {
+        const pedidoActualizado = pedido.filter( producto => producto.id === id)
+        setProducto(pedidoActualizado[0]);
+        setModal(!modal)
+    }
+
     const handleAgregarPedido = ({categoriaId, ...producto}) => {
 
         if(pedido.some(productoState => productoState.id === producto.id)){ //reviso si el producto agregado es repetido
@@ -51,23 +57,24 @@ const KioscoProvider = ({children}) => {
         setModal(false)
     }
 
-    return(
-        <KioscoContext.Provider
-            value={{
-                categorias,
-                handleClickCategoria,
-                categoriaActual,
-                producto,
-                handleSetProducto,
-                handleChangeModal,
-                modal,
-                handleAgregarPedido,
-                pedido
-            }}
-        >
-            {children}
-        </KioscoContext.Provider>
-    )
+    return (
+      <KioscoContext.Provider
+        value={{
+          categorias,
+          handleClickCategoria,
+          categoriaActual,
+          producto,
+          handleSetProducto,
+          handleChangeModal,
+          modal,
+          handleAgregarPedido,
+          pedido,
+          handleEditarCantidades,
+        }}
+      >
+        {children}
+      </KioscoContext.Provider>
+    );
 }
 
 export{
