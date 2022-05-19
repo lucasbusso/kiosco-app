@@ -12,7 +12,7 @@ export default async function handler(req, res) {
                 fecha: req.body.fecha
             }
         })
-        console.log(req.body)
+        
         res.json(orden)
     } 
 }
